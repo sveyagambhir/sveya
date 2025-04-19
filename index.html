@@ -2,81 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sveya</title>
-
-  <!-- Link to Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-
+  <title>Sveya – Special Offers</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Playfair Display', serif;
-      background-color: #fff;
-      color: #333;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    /* Offer Bar */
-    .offer-bar {
-      background-color: #fff;
-      color: #000;
+    .rotating-header {
+      background-color: #ffe4e6; /* Soft pink */
+      color: #9f1239; /* Deep rose for contrast */
       text-align: center;
-      padding: 8px 0;
-      font-size: 14px;
-      border-bottom: 1px solid #e5e5e5;
+      padding: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: opacity 0.5s ease-in-out;
     }
 
-    /* Header */
-    header {
-      background-color: #f7d3e1;
-      background-image: linear-gradient(45deg, rgba(247, 211, 225, 0.9), rgba(255, 255, 255, 0.8));
-      padding: 20px 0; /* reduced height */
-      text-align: center;
-      border-bottom: 3px solid #f2a7c9; /* thinner border */
+    .hidden {
+      opacity: 0;
     }
 
-    header h1 {
-      font-size: 48px; /* smaller text size */
-      font-weight: 400;
-      letter-spacing: 2px;
-      color: #3c3c3c;
-    }
-
-    .main-content {
-      text-align: center;
-      margin-top: 80px;
-    }
-
-    .main-content h2 {
-      font-size: 24px;
-      color: #555;
-      line-height: 1.5;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 100px;
-      padding: 20px;
-      background-color: #f7d3e1;
+    .visible {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
 
-  <!-- Offer Banner -->
-  <div class="offer-bar">
-    Buy one get one sale is live
+  <div id="rotating-header" class="rotating-header visible">
+    <!-- Offer text will go here -->
   </div>
 
-  <!-- Header -->
-  <header>
-    <h1>sveya</h1>
-  </header>
+  <script>
+    const offers = [
+      "✨ Free shipping on orders over ₹999!",
+      "💖 15% off on your first Sveya order!",
+      "🌸 Explore our new spring collection!",
+      "🔥 Limited time: Buy 2, Get 1 Free!"
+    ];
 
-  <!-- Main Content -->
-  <div class="main-content">
+    let index = 0;
+    const header = document.getElementById('rotating-header');
+
+    function updateOffer() {
+      // Fade out
+      header.classList.remove('visible');
+      header.classList.add('hidden');
+
+      setTimeout(() => {
+        // Change text
+        header.textContent = offers[index];
+        index = (index + 1) % offers.length;
+
+        // Fade back in
+        header.classList.remove('hidden');
+        header.classList.add('visible');
+      }, 400);
+    }
+
+    // Initial offer
+    header.textContent = offers[index];
+    index++;
+
+    // Start rotation
+    setInterval(updateOffer, 3000);
+  </script>
+
+</body>
+</html>
