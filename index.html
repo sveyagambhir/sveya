@@ -2,21 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sveya – Special Offers</title>
+  <title>Sveya – Home</title>
+
+  <!-- Buckwheat TC Sans Regular font -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'Buckwheat TCSans';
+      src: url('https://cdn.jsdelivr.net/gh/yourusername/fonts/BuckwheatTCSans-Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff;
     }
 
     .rotating-header {
       background-color: #ffe4e6; /* Soft pink */
-      color: #9f1239; /* Deep rose for contrast */
+      color: #9f1239; /* Deep rose */
       text-align: center;
       padding: 12px;
       font-weight: 600;
       font-size: 15px;
       transition: opacity 0.5s ease-in-out;
+    }
+
+    .brand-banner {
+      background-color: #9f1239; /* Deep rose background */
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .brand-name {
+      font-family: 'Buckwheat TCSans', cursive;
+      font-size: 38px;
+      color: white;
+      letter-spacing: 2px;
     }
 
     .hidden {
@@ -30,8 +54,14 @@
 </head>
 <body>
 
+  <!-- Offer banner -->
   <div id="rotating-header" class="rotating-header visible">
-    <!-- Offer text will go here -->
+    <!-- Offers go here -->
+  </div>
+
+  <!-- Brand name banner -->
+  <div class="brand-banner">
+    <div class="brand-name">Sveya</div>
   </div>
 
   <script>
@@ -46,26 +76,23 @@
     const header = document.getElementById('rotating-header');
 
     function updateOffer() {
-      // Fade out
       header.classList.remove('visible');
       header.classList.add('hidden');
 
       setTimeout(() => {
-        // Change text
         header.textContent = offers[index];
         index = (index + 1) % offers.length;
 
-        // Fade back in
         header.classList.remove('hidden');
         header.classList.add('visible');
       }, 400);
     }
 
-    // Initial offer
+    // Set first offer
     header.textContent = offers[index];
     index++;
 
-    // Start rotation
+    // Rotate every 3 seconds
     setInterval(updateOffer, 3000);
   </script>
 
