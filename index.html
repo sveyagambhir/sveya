@@ -2,45 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sveya – Home</title>
-
-  <!-- Buckwheat TC Sans Regular font -->
-  <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+  <title>Sveya</title>
   <style>
     @font-face {
       font-family: 'Buckwheat TCSans';
-      src: url('https://cdn.jsdelivr.net/gh/yourusername/fonts/BuckwheatTCSans-Regular.woff2') format('woff2');
+      src: url('/mnt/data/buckwheat-tc-sans-rg.otf') format('opentype');
       font-weight: normal;
       font-style: normal;
     }
 
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .rotating-header {
       background-color: #ffe4e6; /* Soft pink */
       color: #9f1239; /* Deep rose */
       text-align: center;
-      padding: 12px;
+      padding: 10px;
       font-weight: 600;
-      font-size: 15px;
+      font-size: 14px;
       transition: opacity 0.5s ease-in-out;
     }
 
     .brand-banner {
-      background-color: #9f1239; /* Deep rose background */
+      background-color: #fff;
       text-align: center;
-      padding: 20px 10px;
+      padding: 40px 10px 20px;
     }
 
     .brand-name {
       font-family: 'Buckwheat TCSans', cursive;
-      font-size: 38px;
-      color: white;
-      letter-spacing: 2px;
+      font-size: 32px;
+      color: #9f1239;
+      letter-spacing: 1.5px;
     }
 
     .hidden {
@@ -55,9 +52,7 @@
 <body>
 
   <!-- Offer banner -->
-  <div id="rotating-header" class="rotating-header visible">
-    <!-- Offers go here -->
-  </div>
+  <div id="rotating-header" class="rotating-header visible"></div>
 
   <!-- Brand name banner -->
   <div class="brand-banner">
