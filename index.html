@@ -29,10 +29,10 @@
     }
 
     .brand-banner {
-      background-color: #f0f0f0; /* light light grey */
+      background-color: #e2e2e2; /* grey color similar to this typing box */
       text-align: center;
-      padding: 40px 0;
-      width: 80%; /* Reduce the width */
+      padding: 20px 0; /* Reduced padding from top and bottom */
+      width: 80%; /* Width remains unchanged */
       margin: 0 auto; /* Center the banner */
     }
 
@@ -51,6 +51,68 @@
       letter-spacing: 1.5px;
       font-weight: 700; /* bold */
       transition: opacity 0.3s ease;
+    }
+
+    /* Product Section Styles */
+    .product-section {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .product-name {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #333;
+      margin: 15px 0;
+    }
+
+    .product-description {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .product-price {
+      font-size: 18px;
+      font-weight: 700;
+      color: #2f2f2f;
+    }
+
+    /* Add responsiveness */
+    @media (max-width: 768px) {
+      .product-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-container {
+        grid-template-columns: 1fr;
+      }
     }
 
     .hidden {
@@ -72,6 +134,34 @@
     <a href="/" class="brand-link">
       <span class="brand-name">sveya</span>
     </a>
+  </div>
+
+  <!-- Product Section -->
+  <div class="product-section" id="products">
+    <h2>Our Products</h2>
+    <div class="product-container">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250" alt="Product 1">
+        <h3 class="product-name">Product 1</h3>
+        <p class="product-description">This is a description of the product. It's amazing and offers great features.</p>
+        <p class="product-price">$29.99</p>
+      </div>
+      <!-- Product 2 -->
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250" alt="Product 2">
+        <h3 class="product-name">Product 2</h3>
+        <p class="product-description">This product is known for its quality and durability. A must-have!</p>
+        <p class="product-price">$39.99</p>
+      </div>
+      <!-- Product 3 -->
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250" alt="Product 3">
+        <h3 class="product-name">Product 3</h3>
+        <p class="product-description">An all-around favorite for many. High performance and style combined!</p>
+        <p class="product-price">$49.99</p>
+      </div>
+    </div>
   </div>
 
   <script>
