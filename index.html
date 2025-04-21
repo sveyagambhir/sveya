@@ -3,28 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>Sveya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    @font-face {
-      font-family: 'Buckwheat TCSans';
-      src: url('/mnt/data/buckwheat-tc-sans-rg.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
-    }
-
     body {
       margin: 0;
       background-color: #fff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     .rotating-header {
-      background-color: #ffe4e6; /* Soft pink */
-      color: #9f1239; /* Deep rose */
+      background-color: #ffe4e6;
+      color: #9f1239;
       text-align: center;
       padding: 10px;
       font-weight: 600;
       font-size: 14px;
       transition: opacity 0.5s ease-in-out;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+
+    .rotating-header:hover {
+      text-decoration: underline;
     }
 
     .brand-banner {
@@ -34,10 +35,17 @@
     }
 
     .brand-name {
-      font-family: 'Buckwheat TCSans', cursive;
+      font-family: 'Poppins', sans-serif;
       font-size: 32px;
       color: #9f1239;
       letter-spacing: 1.5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .brand-name:hover {
+      color: #d12d57;
     }
 
     .hidden {
@@ -51,20 +59,20 @@
 </head>
 <body>
 
-  <!-- Offer banner -->
-  <div id="rotating-header" class="rotating-header visible"></div>
+  <!-- Clickable offer banner -->
+  <a href="#shop" id="rotating-header" class="rotating-header visible"></a>
 
   <!-- Brand name banner -->
   <div class="brand-banner">
-    <div class="brand-name">Sveya</div>
+    <a href="/" class="brand-name">Sveya</a>
   </div>
 
   <script>
     const offers = [
-      "✨ Free shipping on orders over ₹999!",
-      "💖 15% off on your first Sveya order!",
-      "🌸 Explore our new spring collection!",
-      "🔥 Limited time: Buy 2, Get 1 Free!"
+      "Buy Any 2 Products @899/- | Use Code : SVEYA899",
+      "Buy Any 2 Products and Get1 Free | Use Code : B2G1",
+      "Buy at 15% Off | Use Code : SVEYA15",
+      "Get a Eyeshadow Pallete Free on Ordering Above 1499"
     ];
 
     let index = 0;
@@ -77,17 +85,14 @@
       setTimeout(() => {
         header.textContent = offers[index];
         index = (index + 1) % offers.length;
-
         header.classList.remove('hidden');
         header.classList.add('visible');
       }, 400);
     }
 
-    // Set first offer
     header.textContent = offers[index];
     index++;
 
-    // Rotate every 3 seconds
     setInterval(updateOffer, 3000);
   </script>
 
