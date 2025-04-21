@@ -211,6 +211,8 @@
     header.textContent = offers[index];
     index++;
 
+       ...
+
     setInterval(updateOffer, 3000);
 
     // Product shade info
@@ -238,7 +240,11 @@
       document.getElementById("productTitle").textContent = product.title;
       document.getElementById("productPrice").textContent = product.price;
     }
+
+    // Set default shade on page load
+    updateProduct('rose');
   </script>
+
 
 </body>
 </html>
