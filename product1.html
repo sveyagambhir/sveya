@@ -9,7 +9,7 @@
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background-color: #fafafa;
-      padding: 20px;
+      padding: 40px;
     }
 
     .brand-name {
@@ -21,78 +21,92 @@
       margin-bottom: 40px;
     }
 
-    .product-main {
-      max-width: 900px;
+    .product-wrapper {
+      display: flex;
+      gap: 40px;
+      max-width: 1000px;
       margin: 0 auto;
       background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .main-image {
-      width: 100%;
-      border-radius: 8px;
-    }
-
-    .shade-gallery {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 30px;
-      gap: 20px;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       flex-wrap: wrap;
     }
 
-    .shade-gallery img {
+    .product-image {
+      flex: 1 1 45%;
+    }
+
+    .product-image img {
       width: 100%;
-      max-width: 250px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    .product-details {
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .product-title {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .product-price {
+      font-size: 20px;
+      font-weight: 600;
+      color: #2f2f2f;
+      margin-bottom: 30px;
+    }
+
+    .add-to-cart {
+      background-color: #2f2f2f;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 6px;
       cursor: pointer;
-      transition: transform 0.2s;
+      width: fit-content;
     }
 
-    .shade-gallery img:hover {
-      transform: scale(1.05);
+    .add-to-cart:hover {
+      background-color: #444;
     }
 
-    .shade-caption {
-      text-align: center;
-      font-size: 14px;
-      margin-top: 8px;
-      color: #444;
-    }
+    @media (max-width: 768px) {
+      .product-wrapper {
+        flex-direction: column;
+      }
 
-    .shade-block {
-      text-align: center;
-    }
+      .product-image, .product-details {
+        flex: 1 1 100%;
+      }
 
+      .product-details {
+        margin-top: 20px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <div class="brand-name">sveya lipgloss</div>
 
-  <div class="product-main">
-    <img src="images/AI_Generated_Image_2025-04-21_4829449300272012.png" alt="Main Lipgloss" class="main-image">
-
-    <div class="shade-gallery">
-
-      <div class="shade-block">
-        <img src="images/AI_Generated_Image_2025-04-21_4829449300272012.png" alt="Shade 1">
-        <div class="shade-caption">Shade 1 - Rosy Nude</div>
-      </div>
-
-      <div class="shade-block">
-        <img src="images/pink lipstick product standing upright , pink body silver metal drips on body with lid (1).jpg" alt="Shade 2">
-        <div class="shade-caption">Shade 2 - Peach Glow</div>
-      </div>
-
-      <div class="shade-block">
-        <img src="images/maroon lipstick product standing upright , maroon body silver metal drips on body with lid.jpg" alt="Shade 3">
-        <div class="shade-caption">Shade 3 - Berry Shine</div>
-      </div>
-
+  <div class="product-wrapper">
+    <div class="product-image">
+      <img src="images/AI_Generated_Image_2025-04-21_4829449300272012.png" alt="Lipgloss Main">
+    </div>
+    <div class="product-details">
+      <div class="product-title">Hydrating Lipgloss - Rosy Nude</div>
+      <div class="product-price">₹999</div>
+      <button class="add-to-cart">Add to Cart</button>
     </div>
   </div>
 
