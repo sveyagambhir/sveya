@@ -31,14 +31,15 @@
     .brand-banner {
       background-color: #2f2f2f; /* darker grey background for contrast */
       text-align: center;
-      padding: 40px 10px 20px;
+      padding: 40px 0;
     }
 
     .brand-link {
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center; /* Center the brand name */
+      width: 100%;
     }
 
     .brand-name {
@@ -48,11 +49,6 @@
       letter-spacing: 1.5px;
       font-weight: 700; /* bold */
       transition: opacity 0.3s ease;
-    }
-
-    .brand-icon {
-      font-size: 20px;
-      color: #f5f5f5;
     }
 
     .hidden {
@@ -69,10 +65,9 @@
   <!-- Clickable offer banner -->
   <a href="#shop" id="rotating-header" class="rotating-header visible"></a>
 
-  <!-- Brand name with icon -->
+  <!-- Brand name without icon -->
   <div class="brand-banner">
     <a href="/" class="brand-link">
-      <span class="brand-icon">✨</span>
       <span class="brand-name">sveya</span>
     </a>
   </div>
