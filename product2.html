@@ -234,6 +234,29 @@
       }
     };
 
+        ...
+
+    setInterval(updateOffer, 3000);
+
+    // Product shade info
+    const products = {
+      rose: {
+        image: "images/red lipstick product standing upright , red body silver metal drips on body with lid.jpg",
+        title: "sveya lipstick in Rose Red – Smooth Finish & Rich Pigmentation",
+        price: "₹1299"
+      },
+      coral: {
+        image: "images/pink lipstick product standing upright , pink body silver metal drips on body.jpg",
+        title: "sveya lipstick in Coral Kiss – Vibrant & Glossy",
+        price: "₹1399"
+      },
+      plum: {
+        image: "images/maroon lipstick product standing upright , maroon body silver metal drips on body with lid (1).jpg",
+        title: "sveya lipstick in Plum Lust – Deep & Intense Color",
+        price: "₹1499"
+      }
+    };
+
     function updateProduct(shade) {
       const product = products[shade];
       document.getElementById("mainProductImage").src = product.image;
@@ -244,6 +267,7 @@
     // Set default shade on page load
     updateProduct('rose');
   </script>
+
 
 
 </body>
