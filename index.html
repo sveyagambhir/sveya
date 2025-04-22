@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Sveya</title>
   <!-- Montserrat font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -31,32 +31,11 @@
 
     .brand-banner {
       background-color: #f9f9f9; /* Extremely light grey */
-      padding: 12px 20px; /* Some padding on the sides */
+      padding: 12px 20px;
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: flex-start; /* Align to extreme left */
-      .nav-links {
-  display: flex;
-  gap: 25px;
-  margin-left: auto;
-  align-items: center;
-}
-
-.nav-links a {
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  color: #333;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.nav-links a:hover {
-  color: #555;
-  text-decoration: underline;
-}
-
+      justify-content: space-between;
     }
 
     .brand-link {
@@ -68,8 +47,28 @@
       font-size: 48px;
       color: #333; /* Dark grey */
       letter-spacing: 1.5px;
-      font-weight: 700;
+      font-weight: 400;
       text-transform: lowercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #555;
+      text-decoration: underline;
     }
 
     .hero-banner {
@@ -164,21 +163,17 @@
 
   <a href="#shop" id="rotating-header" class="rotating-header visible"></a>
 
-  <!-- Updated Brand Banner -->
- <div class="brand-banner">
-  <!-- Brand on the left -->
-  <a href="/" class="brand-link">
-    <span class="brand-name">sveya</span>
-  </a>
-
-  <!-- Navigation links on the right -->
-  <div class="nav-links">
-    <a href="#shop">Shop</a>
-    <a href="#cart">Cart</a>
-    <a href="#wishlist">Wishlist</a>
+  <!-- Brand Banner -->
+  <div class="brand-banner">
+    <a href="/" class="brand-link">
+      <span class="brand-name">sveya</span>
+    </a>
+    <div class="nav-links">
+      <a href="#shop">Shop</a>
+      <a href="#wishlist">Wishlist</a>
+      <a href="#cart">Cart</a>
+    </div>
   </div>
-</div>
-
 
   <a href="product1.html" class="hero-banner-link">
     <div class="hero-banner">
