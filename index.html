@@ -175,27 +175,73 @@
 </head>
 <body>
 
-  <header>
-    <div class="brand-banner">
-      <!-- Left Elements -->
-      <div class="nav-links-left">
-        <a href="#shop">Shop</a>
-        <a href="#about">About</a>
-      </div>
-
-      <!-- Brand Name (Centered) -->
-      <div class="brand-name">
-        sveya
-      </div>
-
-      <!-- Right Elements -->
-      <div class="nav-links-right">
-        <a href="#search">Search</a>
-        <a href="#wishlist">Wishlist</a>
-        <a href="#cart">Cart</a>
-      </div>
+ <header>
+  <div class="logo-banner">
+    <div class="nav-left">
+      <a href="#">Shop</a>
+      <a href="#">About</a>
     </div>
-  </header>
+    <div class="brand-name">sveya</div>
+    <div class="nav-right">
+      <a href="#">Search</a>
+      <a href="#">Wishlist</a>
+      <a href="#">Cart</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #eee;
+    background-color: #fafafa;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .logo-banner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    border: 1px solid #ccc; /* Outline for the banner */
+    border-radius: 12px;
+    padding: 10px 20px;
+  }
+
+  .brand-name {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: lowercase;
+    text-align: center;
+    flex-grow: 1;
+    letter-spacing: 2px;
+  }
+
+  .nav-left, .nav-right {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-left a, .nav-right a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+
+  .nav-left a:hover, .nav-right a:hover {
+    color: #555;
+    text-decoration: underline;
+  }
+</style>
+
+   
+
 
   <!-- Offer Banner -->
   <div class="offer-banner" id="rotating-header">
