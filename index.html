@@ -2,71 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>sveya</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>sveya – Beauty Redefined</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      padding: 0;
-      background-color: #fafafa;
       font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
-    }
-
-    .rotating-header {
-      background-color: #f5f5f5;
+      background-color: #fafafa;
       color: #333;
-      text-align: center;
-      padding: 10px;
-      font-weight: 600;
-      font-size: 14px;
-      transition: opacity 0.5s ease-in-out;
-      cursor: pointer;
-      text-decoration: none;
-      display: block;
     }
 
-    .rotating-header:hover {
-      text-decoration: underline;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #fafafa;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .brand-banner {
       background-color: #f9f9f9;
-      padding: 12px 20px;
       width: 100%;
-      max-width: 100vw;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      overflow-x: auto;
-    }
-
-    .brand-link {
-      text-decoration: none;
+      padding: 12px 20px;
     }
 
     .brand-name {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 32px; /* Change to 32px */
-  color: #333; /* Dark grey */
-  letter-spacing: 1.5px;
-  font-weight: 600; /* Slightly boldened */
-  text-transform: lowercase;
-}
+      font-family: 'Montserrat', sans-serif;
+      font-size: 32px; /* Adjusted to 32px */
+      color: #333; /* Dark grey */
+      letter-spacing: 1.5px;
+      font-weight: 600; /* Slightly boldened */
+      text-transform: lowercase;
+      flex-grow: 1;
+      text-align: center;
+    }
 
-
-    .nav-links {
+    .nav-links-left, .nav-links-right {
       display: flex;
       gap: 25px;
       align-items: center;
-      white-space: nowrap;
     }
 
-    .nav-links a {
+    .nav-links-left a, .nav-links-right a {
       font-family: 'Poppins', sans-serif;
       font-size: 16px;
       color: #333;
@@ -75,11 +60,12 @@
       transition: color 0.2s ease;
     }
 
-    .nav-links a:hover {
+    .nav-links-left a:hover, .nav-links-right a:hover {
       color: #555;
       text-decoration: underline;
     }
 
+    /* Hero Section */
     .hero-banner {
       width: 100%;
       height: 100vh;
@@ -99,6 +85,7 @@
       height: 100%;
     }
 
+    /* Product Section */
     .product-section {
       padding: 40px 0;
       text-align: center;
@@ -106,9 +93,9 @@
 
     .product-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 30px;
-      width: 90%;
+      width: 80%;
       margin: 0 auto;
     }
 
@@ -147,6 +134,19 @@
       color: #2f2f2f;
     }
 
+    /* Add responsiveness */
+    @media (max-width: 768px) {
+      .product-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .hidden {
       opacity: 0;
     }
@@ -158,19 +158,29 @@
 </head>
 <body>
 
-  <a href="#shop" id="rotating-header" class="rotating-header visible"></a>
+  <header>
+    <div class="brand-banner">
+      <!-- Left Elements -->
+      <div class="nav-links-left">
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+      </div>
 
-  <div class="brand-banner">
-    <a href="/" class="brand-link">
-      <span class="brand-name">sveya</span>
-    </a>
-    <div class="nav-links">
-      <a href="#shop">Shop</a>
-      <a href="#wishlist">Wishlist</a>
-      <a href="#cart">Cart</a>
+      <!-- Brand Name (Centered) -->
+      <div class="brand-name">
+        sveya
+      </div>
+
+      <!-- Right Elements -->
+      <div class="nav-links-right">
+        <a href="#search">Search</a>
+        <a href="#wishlist">Wishlist</a>
+        <a href="#cart">Cart</a>
+      </div>
     </div>
-  </div>
+  </header>
 
+  <!-- Hero Section -->
   <a href="product1.html" class="hero-banner-link">
     <div class="hero-banner">
       <img src="images/Artboard 2.png" alt="Sveya Lipgloss Banner">
