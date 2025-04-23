@@ -16,6 +16,7 @@
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #fafafa;
+      padding-top: 130px; /* header + offer banner space */
       color: #333;
     }
 
@@ -23,7 +24,6 @@
     .offer-banner {
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
       background-color: #848484;
       color: #fff;
@@ -36,50 +36,50 @@
     }
 
     /* Header */
-    header {
+    .header-wrapper {
+      position: fixed;
+      top: 40px;
+      width: 100%;
+      background-color: #eeeeee;
+      border-bottom: 1px solid #ccc;
+      z-index: 999;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.78rem 2rem;
-      background-color: #eeeeee;
-      border-bottom: 1px solid #ccc;
-      position: sticky;
-      top: 60px; /* Adjusted to be below the offer banner */
-      z-index: 999; /* Adjusted to make sure the header is below the offer banner */
+      padding: 10px 20px;
     }
 
-    .brand-banner {
-      background-color: #eeeeee;
+    .nav-links-left, .nav-links-right {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 6px 20px;
-      width: 100%;
-      border-radius: 12px;
-      position: relative;
+      gap: 20px;
+    }
+
+    .nav-links-left a, .nav-links-right a {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #333;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links-left a:hover, .nav-links-right a:hover {
+      color: #555;
+      text-decoration: underline;
     }
 
     .brand-name {
       font-family: 'Quicksand', sans-serif;
       font-size: 30px;
-      font-weight: 750;
+      font-weight: 700;
       color: #333;
-      letter-spacing: 1px;
       text-transform: lowercase;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 30px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      font-size: 16px;
-      text-transform: uppercase;
       letter-spacing: 1px;
+      text-decoration: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
     }
 
     /* Main Product Section */
@@ -133,7 +133,7 @@
       width: fit-content;
     }
 
-    /* Shades Gallery */
+    /* Shade Gallery */
     .shade-gallery {
       display: flex;
       justify-content: center;
@@ -166,18 +166,29 @@
       color: #555;
     }
 
-    /* Responsive Design */
     @media (max-width: 768px) {
+      .header-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .nav-links-left, .nav-links-right {
+        gap: 10px;
+      }
+
+      .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
       .product-main {
         flex-direction: column;
       }
 
       .main-image, .product-info {
         max-width: 100%;
-      }
-
-      .nav-links {
-        display: none;
       }
     }
   </style>
@@ -187,17 +198,18 @@
   <!-- Offer Banner -->
   <div class="offer-banner" id="offerBanner">Loading offers...</div>
 
-  <!-- Header with Navigation -->
-  <header>
-    <div class="brand-banner">
-      <div class="brand-name">sveya</div>
-    </div>
-    <nav class="nav-links">
-      <a href="#">Home</a>
+  <!-- Header -->
+  <header class="header-wrapper">
+    <div class="nav-links-left">
       <a href="#">Shop</a>
-      <a href="#">Contact</a>
       <a href="#">About</a>
-    </nav>
+    </div>
+    <a href="index.html" class="brand-name">sveya</a>
+    <div class="nav-links-right">
+      <a href="#">Search</a>
+      <a href="#">Wishlist</a>
+      <a href="#">Cart</a>
+    </div>
   </header>
 
   <!-- Product Info Section -->
@@ -210,7 +222,7 @@
     </div>
   </div>
 
-  <!-- Shades Gallery -->
+  <!-- Shades -->
   <div class="shade-gallery">
     <div class="shade-block" onclick="updateProduct('rosy')">
       <img src="images/red lipgloss product standing upright , red body silver metal drips on body with lid.jpg" alt="Rosy">
@@ -278,3 +290,4 @@
 
 </body>
 </html>
+
