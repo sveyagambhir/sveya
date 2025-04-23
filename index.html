@@ -26,19 +26,20 @@
       z-index: 1000;
     }
 
-   .brand-banner {
+  .brand-banner {
   background-color: #eeeeee;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between; /* important to keep nav links on ends */
   padding: 6px 20px;
   position: relative;
   border-radius: 12px;
 }
 
 
-   .brand-name {
+
+  .brand-name {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -48,7 +49,9 @@
   letter-spacing: 1px;
   font-weight: 750;
   text-transform: lowercase;
+  pointer-events: none; /* optional: prevents overlap issues on small screens */
 }
+
 
     .nav-links-left, .nav-links-right {
       display: flex;
