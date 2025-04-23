@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>sveya</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+  <title>sveya – Rosy Nude Lipgloss</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -16,11 +16,11 @@
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #fafafa;
-      padding-top: 130px; /* space for fixed headers */
+      padding-top: 130px; /* header + offer banner space */
       color: #333;
     }
 
-    /* Rotating offer banner */
+    /* Offer Banner */
     .offer-banner {
       position: fixed;
       top: 0;
@@ -35,7 +35,7 @@
       transition: opacity 0.3s ease-in-out;
     }
 
-    /* Header with nav and brand name centered */
+    /* Header */
     .header-wrapper {
       position: fixed;
       top: 40px;
@@ -79,7 +79,7 @@
       text-decoration: underline;
     }
 
-    /* Main product section */
+    /* Main Product Section */
     .product-main {
       display: flex;
       flex-wrap: wrap;
@@ -130,7 +130,7 @@
       width: fit-content;
     }
 
-    /* Shade gallery */
+    /* Shade Gallery */
     .shade-gallery {
       display: flex;
       justify-content: center;
@@ -163,7 +163,6 @@
       color: #555;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .header-wrapper {
         grid-template-columns: 1fr;
@@ -192,7 +191,7 @@
   <!-- Offer Banner -->
   <div class="offer-banner" id="offerBanner">Loading offers...</div>
 
-  <!-- Header with Navigation -->
+  <!-- Header -->
   <header class="header-wrapper">
     <div class="nav-links nav-left">
       <a href="#">Shop</a>
@@ -206,9 +205,9 @@
     </div>
   </header>
 
-  <!-- Product Section -->
+  <!-- Product Info Section -->
   <div class="product-main">
-    <img id="mainProductImage" class="main-image" src="images/red lipgloss product standing upright , red body silver metal drips on body with lid.jpg" alt="Lipgloss">
+    <img id="mainProductImage" class="main-image" src="images/red lipgloss product standing upright , red body silver metal drips on body with lid.jpg" alt="Rosy Nude Lipgloss">
     <div class="product-info">
       <div id="productTitle" class="product-title">sveya lipgloss enriched with shea butter and vitamin C</div>
       <div id="productPrice" class="product-price">₹999</div>
@@ -216,7 +215,7 @@
     </div>
   </div>
 
-  <!-- Shade Gallery -->
+  <!-- Shades -->
   <div class="shade-gallery">
     <div class="shade-block" onclick="updateProduct('rosy')">
       <img src="images/red lipgloss product standing upright , red body silver metal drips on body with lid.jpg" alt="Rosy">
@@ -232,12 +231,13 @@
     </div>
   </div>
 
+  <!-- Scripts -->
   <script>
     const offers = [
       "Buy Any 2 Products @899/- | Use Code : SVEYA899",
       "Buy Any 2 Products and Get 1 Free | Use Code : B2G1",
       "Buy at 15% Off | Use Code : SVEYA15",
-      "Get a Eyeshadow Pallete Free on Orders Above ₹1499"
+      "Get an Eyeshadow Pallete Free on Orders Above ₹1499"
     ];
 
     let offerIndex = 0;
