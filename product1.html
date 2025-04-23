@@ -43,7 +43,7 @@
       background-color: #eeeeee;
       border-bottom: 1px solid #ccc;
       position: sticky;
-      top: 0;
+      top: 60px; /* Adjusted to be below the offer banner */
       z-index: 1000;
     }
 
@@ -52,7 +52,7 @@
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: space-between; /* important to keep nav links on ends */
+      justify-content: space-between;
       padding: 6px 20px;
       position: relative;
       border-radius: 12px;
@@ -142,7 +142,7 @@
       width: fit-content;
     }
 
-    /* Shade Gallery */
+    /* Shades Gallery */
     .shade-gallery {
       display: flex;
       justify-content: center;
@@ -175,12 +175,8 @@
       color: #555;
     }
 
+    /* Responsive Design */
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: center;
-      }
-
       .product-main {
         flex-direction: column;
       }
@@ -194,9 +190,7 @@
 <body>
 
   <!-- Offer Banner -->
-  <div class="offer-banner" id="rotating-header">
-    Buy Any 2 Products @899/- | Use Code : SVEYA899
-  </div>
+  <div class="offer-banner" id="offerBanner">Loading offers...</div>
 
   <!-- Header -->
   <header>
@@ -224,7 +218,7 @@
     </div>
   </div>
 
-  <!-- Shades -->
+  <!-- Shades Gallery -->
   <div class="shade-gallery">
     <div class="shade-block" onclick="updateProduct('rosy')">
       <img src="images/red lipgloss product standing upright , red body silver metal drips on body with lid.jpg" alt="Rosy">
@@ -249,25 +243,20 @@
       "Get an Eyeshadow Pallete Free on Orders Above ₹1499"
     ];
 
-    let index = 0;
-    const header = document.getElementById('rotating-header');
+    let offerIndex = 0;
+    const banner = document.getElementById("offerBanner");
 
-    function updateOffer() {
-      header.classList.remove('visible');
-      header.classList.add('hidden');
-
+    function rotateOffer() {
+      banner.style.opacity = 0;
       setTimeout(() => {
-        header.textContent = offers[index];
-        index = (index + 1) % offers.length;
-        header.classList.remove('hidden');
-        header.classList.add('visible');
+        banner.textContent = offers[offerIndex];
+        offerIndex = (offerIndex + 1) % offers.length;
+        banner.style.opacity = 1;
       }, 400);
     }
 
-    header.textContent = offers[index];
-    index++;
-
-    setInterval(updateOffer, 3000);
+    banner.textContent = offers[0];
+    setInterval(rotateOffer, 3000);
 
     const products = {
       rosy: {
