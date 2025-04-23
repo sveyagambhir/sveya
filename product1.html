@@ -37,7 +37,7 @@
     /* Header */
     header {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       padding: 0.78rem 2rem;
       background-color: #eeeeee;
@@ -49,46 +49,22 @@
 
     .brand-banner {
       background-color: #eeeeee;
-      width: 100%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       padding: 6px 20px;
-      position: relative;
+      width: 100%;
       border-radius: 12px;
+      position: relative;
     }
 
     .brand-name {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
       font-family: 'Quicksand', sans-serif;
       font-size: 30px;
+      font-weight: 750;
       color: #333;
       letter-spacing: 1px;
-      font-weight: 750;
       text-transform: lowercase;
-      pointer-events: none;
-    }
-
-    .nav-links-left, .nav-links-right {
-      display: flex;
-      gap: 25px;
-      align-items: center;
-    }
-
-    .nav-links-left a, .nav-links-right a {
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-      color: #333;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links-left a:hover, .nav-links-right a:hover {
-      color: #555;
-      text-decoration: underline;
     }
 
     /* Main Product Section */
@@ -195,16 +171,7 @@
   <!-- Header -->
   <header>
     <div class="brand-banner">
-      <div class="nav-links-left">
-        <a href="#">Shop</a>
-        <a href="#">About</a>
-      </div>
       <div class="brand-name">sveya</div>
-      <div class="nav-links-right">
-        <a href="#">Search</a>
-        <a href="#">Wishlist</a>
-        <a href="#">Cart</a>
-      </div>
     </div>
   </header>
 
