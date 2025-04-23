@@ -12,7 +12,7 @@
       font-family: 'Poppins', sans-serif;
       background-color: #fafafa;
       color: #333;
-      padding-top: 90px; /* space for sticky header + offer banner */
+      padding-top: 100px;
     }
 
     /* Offer Banner */
@@ -24,29 +24,27 @@
       font-size: 14px;
       color: #fafafa;
       transition: opacity 0.5s ease-in-out;
-      cursor: pointer;
-      display: block;
       position: fixed;
-      width: 100%;
       top: 0;
-      z-index: 1000;
+      width: 100%;
+      z-index: 999;
     }
 
-    .offer-banner:hover {
-      text-decoration: underline;
+    .offer-banner.hidden {
+      opacity: 0;
     }
 
     /* Header */
     header {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       padding: 0.78rem 2rem;
       background-color: #eeeeee;
       border-bottom: 1px solid #ccc;
       position: sticky;
       top: 40px;
-      z-index: 999;
+      z-index: 998;
     }
 
     .brand-banner {
@@ -58,8 +56,6 @@
       padding: 6px 20px;
       position: relative;
       border-radius: 12px;
-      max-width: 1400px;
-      margin: 0 auto;
     }
 
     .brand-name {
@@ -75,25 +71,22 @@
       pointer-events: none;
     }
 
-    .nav-links-left,
-    .nav-links-right {
+    .nav-links-left, .nav-links-right {
       display: flex;
       gap: 25px;
       align-items: center;
     }
 
-    .nav-links-left a,
-    .nav-links-right a {
+    .nav-links-left a, .nav-links-right a {
       font-family: 'Poppins', sans-serif;
       font-size: 16px;
+      font-weight: 500;
       color: #333;
       text-decoration: none;
-      font-weight: 500;
       transition: color 0.2s ease;
     }
 
-    .nav-links-left a:hover,
-    .nav-links-right a:hover {
+    .nav-links-left a:hover, .nav-links-right a:hover {
       color: #555;
       text-decoration: underline;
     }
@@ -149,7 +142,6 @@
       width: fit-content;
     }
 
-    /* Shade Gallery */
     .shade-gallery {
       display: flex;
       justify-content: center;
@@ -183,14 +175,14 @@
     }
 
     @media (max-width: 768px) {
-      .brand-banner {
+      header {
         flex-direction: column;
         gap: 10px;
       }
 
-      .nav-links-left, .nav-links-right {
-        justify-content: center;
-        flex-wrap: wrap;
+      .brand-banner {
+        flex-direction: column;
+        align-items: center;
       }
 
       .product-main {
@@ -200,14 +192,6 @@
       .main-image, .product-info {
         max-width: 100%;
       }
-    }
-
-    .hidden {
-      opacity: 0;
-    }
-
-    .visible {
-      opacity: 1;
     }
   </style>
 </head>
@@ -272,14 +256,11 @@
     const header = document.getElementById('rotating-header');
 
     function updateOffer() {
-      header.classList.remove('visible');
       header.classList.add('hidden');
-
       setTimeout(() => {
         header.textContent = offers[index];
         index = (index + 1) % offers.length;
         header.classList.remove('hidden');
-        header.classList.add('visible');
       }, 400);
     }
 
