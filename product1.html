@@ -16,7 +16,7 @@
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #fafafa;
-      padding-top: 130px; /* header + offer banner space */
+      padding-top: 130px;
       color: #333;
     }
 
@@ -39,11 +39,6 @@
       opacity: 0;
     }
 
-    /* Hide offer banner when scrolling */
-    .hide-offer-banner {
-      display: none;
-    }
-
     /* Header */
     .header-wrapper {
       position: fixed;
@@ -52,19 +47,23 @@
       background-color: #eeeeee;
       border-bottom: 1px solid #ccc;
       z-index: 999;
+      padding: 10px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 30px;
+      position: relative;
     }
 
     .brand-name {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: 'Quicksand', sans-serif;
       font-size: 30px;
       color: #333;
       font-weight: 750;
       text-transform: lowercase;
-      text-decoration: none; /* Remove underline */
+      text-decoration: none;
       letter-spacing: 1px;
       pointer-events: none;
     }
@@ -174,10 +173,16 @@
 
     @media (max-width: 768px) {
       .header-wrapper {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
+        flex-direction: column;
         gap: 10px;
         text-align: center;
+        padding: 20px;
+      }
+
+      .brand-name {
+        position: static;
+        transform: none;
+        margin: 10px 0;
       }
 
       .nav-links {
