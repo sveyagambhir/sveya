@@ -1,94 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>sveya – Rosy Nude Lipgloss</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
+      margin: 0;
       font-family: 'Poppins', sans-serif;
       background-color: #fafafa;
-      padding-top: 130px; /* header + offer banner space */
       color: #333;
+      padding-top: 90px; /* space for sticky header + offer banner */
     }
 
     /* Offer Banner */
     .offer-banner {
-      position: fixed;
-      top: 0;
-      width: 100%;
       background-color: #848484;
-      color: #fff;
       text-align: center;
+      padding: 10px;
       font-weight: 600;
       font-size: 14px;
-      padding: 10px;
+      color: #fafafa;
+      transition: opacity 0.5s ease-in-out;
+      cursor: pointer;
+      display: block;
+      position: fixed;
+      width: 100%;
+      top: 0;
       z-index: 1000;
-      transition: opacity 0.3s ease-in-out;
     }
 
-    .hidden {
-      opacity: 0;
-    }
-
-    /* Hide offer banner when scrolling */
-    .hide-offer-banner {
-      display: none;
+    .offer-banner:hover {
+      text-decoration: underline;
     }
 
     /* Header */
-    .header-wrapper {
-      position: fixed;
-      top: 40px;
-      width: 100%;
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.78rem 2rem;
       background-color: #eeeeee;
       border-bottom: 1px solid #ccc;
+      position: sticky;
+      top: 40px;
       z-index: 999;
+    }
+
+    .brand-banner {
+      background-color: #eeeeee;
+      width: 100%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 10px 30px;
+      justify-content: space-between;
+      padding: 6px 20px;
+      position: relative;
+      border-radius: 12px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
     .brand-name {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: 'Quicksand', sans-serif;
       font-size: 30px;
       color: #333;
+      letter-spacing: 1px;
       font-weight: 750;
       text-transform: lowercase;
-      text-decoration: none; /* Remove underline */
-      letter-spacing: 1px;
       pointer-events: none;
     }
 
-    .nav-links a {
+    .nav-links-left,
+    .nav-links-right {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links-left a,
+    .nav-links-right a {
       font-family: 'Poppins', sans-serif;
       font-size: 16px;
-      font-weight: 500;
       color: #333;
       text-decoration: none;
+      font-weight: 500;
       transition: color 0.2s ease;
     }
 
-    .nav-links a:hover {
+    .nav-links-left a:hover,
+    .nav-links-right a:hover {
       color: #555;
       text-decoration: underline;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 25px;
-    }
-
-    /* Main Product Section */
+    /* Product Section */
     .product-main {
       display: flex;
       flex-wrap: wrap;
@@ -173,14 +183,12 @@
     }
 
     @media (max-width: 768px) {
-      .header-wrapper {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
+      .brand-banner {
+        flex-direction: column;
         gap: 10px;
-        text-align: center;
       }
 
-      .nav-links {
+      .nav-links-left, .nav-links-right {
         justify-content: center;
         flex-wrap: wrap;
       }
@@ -193,24 +201,36 @@
         max-width: 100%;
       }
     }
+
+    .hidden {
+      opacity: 0;
+    }
+
+    .visible {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
 
   <!-- Offer Banner -->
-  <div class="offer-banner" id="offerBanner">Loading offers...</div>
+  <div class="offer-banner" id="rotating-header">
+    Buy Any 2 Products @899/- | Use Code : SVEYA899
+  </div>
 
   <!-- Header -->
-  <header class="header-wrapper">
-    <div class="nav-links">
-      <a href="#">Shop</a>
-      <a href="#">About</a>
-    </div>
-    <a href="index.html" class="brand-name">sveya</a>
-    <div class="nav-links">
-      <a href="#">Search</a>
-      <a href="#">Wishlist</a>
-      <a href="#">Cart</a>
+  <header>
+    <div class="brand-banner">
+      <div class="nav-links-left">
+        <a href="#">Shop</a>
+        <a href="#">About</a>
+      </div>
+      <div class="brand-name">sveya</div>
+      <div class="nav-links-right">
+        <a href="#">Search</a>
+        <a href="#">Wishlist</a>
+        <a href="#">Cart</a>
+      </div>
     </div>
   </header>
 
@@ -240,7 +260,6 @@
     </div>
   </div>
 
-  <!-- Scripts -->
   <script>
     const offers = [
       "Buy Any 2 Products @899/- | Use Code : SVEYA899",
@@ -249,20 +268,25 @@
       "Get an Eyeshadow Pallete Free on Orders Above ₹1499"
     ];
 
-    let offerIndex = 0;
-    const banner = document.getElementById("offerBanner");
+    let index = 0;
+    const header = document.getElementById('rotating-header');
 
-    function rotateOffer() {
-      banner.style.opacity = 0;
+    function updateOffer() {
+      header.classList.remove('visible');
+      header.classList.add('hidden');
+
       setTimeout(() => {
-        banner.textContent = offers[offerIndex];
-        offerIndex = (offerIndex + 1) % offers.length;
-        banner.style.opacity = 1;
+        header.textContent = offers[index];
+        index = (index + 1) % offers.length;
+        header.classList.remove('hidden');
+        header.classList.add('visible');
       }, 400);
     }
 
-    banner.textContent = offers[0];
-    setInterval(rotateOffer, 3000);
+    header.textContent = offers[index];
+    index++;
+
+    setInterval(updateOffer, 3000);
 
     const products = {
       rosy: {
@@ -283,10 +307,12 @@
     };
 
     function updateProduct(shade) {
-      document.getElementById("mainProductImage").src = products[shade].image;
-      document.getElementById("productTitle").textContent = products[shade].title;
-      document.getElementById("productPrice").textContent = products[shade].price;
+      const p = products[shade];
+      document.getElementById("mainProductImage").src = p.image;
+      document.getElementById("productTitle").textContent = p.title;
+      document.getElementById("productPrice").textContent = p.price;
     }
   </script>
+
 </body>
 </html>
