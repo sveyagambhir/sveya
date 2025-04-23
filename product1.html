@@ -7,87 +7,94 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Poppins', sans-serif;
       background-color: #fafafa;
+      padding-top: 130px; /* header + offer banner space */
       color: #333;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.78rem 2rem;
-      background-color: #eeeeee;
-      border-bottom: 1px solid #ccc;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-  .brand-banner {
-  background-color: #eeeeee;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* important to keep nav links on ends */
-  padding: 6px 20px;
-  position: relative;
-  border-radius: 12px;
-}
-
-
-
-  .brand-name {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'Quicksand', sans-serif;
-  font-size: 30px;
-  color: #333;
-  letter-spacing: 1px;
-  font-weight: 750;
-  text-transform: lowercase;
-  pointer-events: none; /* optional: prevents overlap issues on small screens */
-}
-
-
-    .nav-links-left, .nav-links-right {
-      display: flex;
-      gap: 25px;
-      align-items: center;
-    }
-
-    .nav-links-left a, .nav-links-right a {
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-      color: #333;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links-left a:hover, .nav-links-right a:hover {
-      color: #555;
-      text-decoration: underline;
     }
 
     /* Offer Banner */
     .offer-banner {
+      position: fixed;
+      top: 0;
+      width: 100%;
       background-color: #848484;
+      color: #fafafa;
       text-align: center;
-      padding: 10px;
       font-weight: 600;
       font-size: 14px;
-      color: #fafafa;
-      transition: opacity 0.5s ease-in-out;
+      padding: 10px;
+      z-index: 1000;
+      transition: opacity 0.3s ease-in-out;
       cursor: pointer;
-      display: block;
     }
 
     .offer-banner:hover {
       text-decoration: underline;
+    }
+
+    /* Header */
+    .header-wrapper {
+      position: fixed;
+      top: 40px;
+      width: 100%;
+      background-color: #eeeeee;
+      border-bottom: 1px solid #ccc;
+      z-index: 999;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 10px 30px;
+    }
+
+    .brand-banner {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 20px;
+      position: relative;
+      border-radius: 12px;
+    }
+
+    .brand-name {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Quicksand', sans-serif;
+      font-size: 30px;
+      color: #333;
+      letter-spacing: 1px;
+      font-weight: 750;
+      text-transform: lowercase;
+      pointer-events: none;
+    }
+
+    /* Navigation links - matching home page font size and weight */
+    .nav-links a {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #333;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #555;
+      text-decoration: underline;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
     }
 
     /* Main Product Section */
@@ -200,7 +207,7 @@
 <body>
 
   <!-- Offer Banner -->
-  <div class="offer-banner" id="offerBanner">Loading offers...</div>
+  <div class="offer-banner" id="rotating-header">Loading offers...</div>
 
   <!-- Header -->
   <header class="header-wrapper">
@@ -252,18 +259,18 @@
     ];
 
     let offerIndex = 0;
-    const banner = document.getElementById("offerBanner");
+    const header = document.getElementById('rotating-header');
 
     function rotateOffer() {
-      banner.style.opacity = 0;
+      header.style.opacity = 0;
       setTimeout(() => {
-        banner.textContent = offers[offerIndex];
+        header.textContent = offers[offerIndex];
         offerIndex = (offerIndex + 1) % offers.length;
-        banner.style.opacity = 1;
+        header.style.opacity = 1;
       }, 400);
     }
 
-    banner.textContent = offers[0];
+    header.textContent = offers[0];
     setInterval(rotateOffer, 3000);
 
     const products = {
@@ -294,9 +301,9 @@
     // Function to hide offer banner on scroll
     window.addEventListener('scroll', function() {
       if (window.scrollY > 0) {
-        document.getElementById("offerBanner").classList.add("hide-offer-banner");
+        document.getElementById("rotating-header").classList.add("hidden");
       } else {
-        document.getElementById("offerBanner").classList.remove("hide-offer-banner");
+        document.getElementById("rotating-header").classList.remove("hidden");
       }
     });
   </script>
