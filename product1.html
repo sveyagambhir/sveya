@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>sveya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -15,7 +16,7 @@
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #fafafa;
-      padding-top: 130px; /* account for fixed headers */
+      padding-top: 130px; /* space for fixed headers */
       color: #333;
     }
 
@@ -34,28 +35,48 @@
       transition: opacity 0.3s ease-in-out;
     }
 
-    /* Brand bar with centered name */
-    .brand-bar {
+    /* Header with nav and brand name centered */
+    .header-wrapper {
       position: fixed;
-      top: 40px; /* below offer */
+      top: 40px;
       width: 100%;
       background-color: #eeeeee;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
       border-bottom: 1px solid #ccc;
+      z-index: 999;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 10px 30px;
     }
 
     .brand-name {
       font-family: 'Quicksand', sans-serif;
       font-size: 30px;
       font-weight: 700;
-      text-transform: lowercase;
       color: #333;
+      text-transform: lowercase;
       letter-spacing: 1px;
       text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #333;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #555;
+      text-decoration: underline;
     }
 
     /* Main product section */
@@ -142,8 +163,20 @@
       color: #555;
     }
 
-    /* Responsive tweaks */
+    /* Responsive */
     @media (max-width: 768px) {
+      .header-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
       .product-main {
         flex-direction: column;
       }
@@ -156,13 +189,22 @@
 </head>
 <body>
 
-  <!-- Rotating Offer Banner -->
+  <!-- Offer Banner -->
   <div class="offer-banner" id="offerBanner">Loading offers...</div>
 
-  <!-- Brand Banner -->
-  <div class="brand-bar">
+  <!-- Header with Navigation -->
+  <header class="header-wrapper">
+    <div class="nav-links nav-left">
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+    </div>
     <a href="index.html" class="brand-name">sveya</a>
-  </div>
+    <div class="nav-links nav-right">
+      <a href="#">Search</a>
+      <a href="#">Wishlist</a>
+      <a href="#">Cart</a>
+    </div>
+  </header>
 
   <!-- Product Section -->
   <div class="product-main">
@@ -191,7 +233,6 @@
   </div>
 
   <script>
-    // Rotating offers
     const offers = [
       "Buy Any 2 Products @899/- | Use Code : SVEYA899",
       "Buy Any 2 Products and Get 1 Free | Use Code : B2G1",
@@ -214,7 +255,6 @@
     banner.textContent = offers[0];
     setInterval(rotateOffer, 3000);
 
-    // Product Switch
     const products = {
       rosy: {
         image: "images/red lipgloss product standing upright , red body silver metal drips on body with lid.jpg",
