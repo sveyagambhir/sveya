@@ -23,6 +23,7 @@
     .offer-banner {
       position: fixed;
       top: 0;
+      left: 0;
       width: 100%;
       background-color: #848484;
       color: #fff;
@@ -37,14 +38,14 @@
     /* Header */
     header {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       padding: 0.78rem 2rem;
       background-color: #eeeeee;
       border-bottom: 1px solid #ccc;
       position: sticky;
       top: 60px; /* Adjusted to be below the offer banner */
-      z-index: 1000;
+      z-index: 999; /* Adjusted to make sure the header is below the offer banner */
     }
 
     .brand-banner {
@@ -65,6 +66,20 @@
       color: #333;
       letter-spacing: 1px;
       text-transform: lowercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     /* Main Product Section */
@@ -160,6 +175,10 @@
       .main-image, .product-info {
         max-width: 100%;
       }
+
+      .nav-links {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -168,11 +187,17 @@
   <!-- Offer Banner -->
   <div class="offer-banner" id="offerBanner">Loading offers...</div>
 
-  <!-- Header -->
+  <!-- Header with Navigation -->
   <header>
     <div class="brand-banner">
       <div class="brand-name">sveya</div>
     </div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Contact</a>
+      <a href="#">About</a>
+    </nav>
   </header>
 
   <!-- Product Info Section -->
