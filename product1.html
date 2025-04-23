@@ -35,6 +35,15 @@
       transition: opacity 0.3s ease-in-out;
     }
 
+    .hidden {
+      opacity: 0;
+    }
+
+    /* Hide offer banner when scrolling */
+    .hide-offer-banner {
+      display: none;
+    }
+
     /* Header */
     .header-wrapper {
       position: fixed;
@@ -43,18 +52,37 @@
       background-color: #eeeeee;
       border-bottom: 1px solid #ccc;
       z-index: 999;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 10px 30px;
+    }
+
+    .brand-banner {
+      width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
+      padding: 6px 20px;
+      position: relative;
+      border-radius: 12px;
     }
 
-    .nav-links-left, .nav-links-right {
-      display: flex;
-      gap: 20px;
+    .brand-name {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Quicksand', sans-serif;
+      font-size: 30px;
+      color: #333;
+      letter-spacing: 1px;
+      font-weight: 750;
+      text-transform: lowercase;
+      pointer-events: none;
     }
 
-    .nav-links-left a, .nav-links-right a {
+    /* Navigation links - matching home page font size and weight */
+    .nav-links a {
       font-family: 'Poppins', sans-serif;
       font-size: 16px;
       font-weight: 500;
@@ -63,23 +91,14 @@
       transition: color 0.2s;
     }
 
-    .nav-links-left a:hover, .nav-links-right a:hover {
+    .nav-links a:hover {
       color: #555;
       text-decoration: underline;
     }
 
-    .brand-name {
-      font-family: 'Quicksand', sans-serif;
-      font-size: 30px;
-      font-weight: 700;
-      color: #333;
-      text-transform: lowercase;
-      letter-spacing: 1px;
-      text-decoration: none;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      pointer-events: none;
+    .nav-links {
+      display: flex;
+      gap: 25px;
     }
 
     /* Main Product Section */
@@ -174,10 +193,6 @@
         text-align: center;
       }
 
-      .nav-links-left, .nav-links-right {
-        gap: 10px;
-      }
-
       .nav-links {
         justify-content: center;
         flex-wrap: wrap;
@@ -200,12 +215,12 @@
 
   <!-- Header -->
   <header class="header-wrapper">
-    <div class="nav-links-left">
+    <div class="nav-links">
       <a href="#">Shop</a>
       <a href="#">About</a>
     </div>
     <a href="index.html" class="brand-name">sveya</a>
-    <div class="nav-links-right">
+    <div class="nav-links">
       <a href="#">Search</a>
       <a href="#">Wishlist</a>
       <a href="#">Cart</a>
@@ -286,8 +301,16 @@
       document.getElementById("productTitle").textContent = p.title;
       document.getElementById("productPrice").textContent = p.price;
     }
+
+    // Function to hide offer banner on scroll
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 0) {
+        document.getElementById("offerBanner").classList.add("hide-offer-banner");
+      } else {
+        document.getElementById("offerBanner").classList.remove("hide-offer-banner");
+      }
+    });
   </script>
 
 </body>
 </html>
-
