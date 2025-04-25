@@ -14,32 +14,30 @@
       color: #333;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.78rem 2rem;
-      background-color: #eeeeee;
-      border-bottom: 1px solid #ccc;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+   header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.78rem 2rem;
+  background-color: #eeeeee;
+  border-bottom: 1px solid #ccc;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-  .brand-banner {
+.brand-banner {
   background-color: #eeeeee;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* important to keep nav links on ends */
+  justify-content: space-between;
   padding: 6px 20px;
   position: relative;
   border-radius: 12px;
 }
 
-
-
-  .brand-name {
+.brand-name {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -49,46 +47,45 @@
   letter-spacing: 1px;
   font-weight: 750;
   text-transform: lowercase;
-  pointer-events: none; /* optional: prevents overlap issues on small screens */
+  pointer-events: none;
 }
 
+.nav-links-left, .nav-links-right {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
 
-    .nav-links-left, .nav-links-right {
-      display: flex;
-      gap: 25px;
-      align-items: center;
-    }
+.nav-links-left a, .nav-links-right a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
 
-    .nav-links-left a, .nav-links-right a {
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-      color: #333;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
+.nav-links-left a:hover, .nav-links-right a:hover {
+  color: #555;
+  text-decoration: underline;
+}
 
-    .nav-links-left a:hover, .nav-links-right a:hover {
-      color: #555;
-      text-decoration: underline;
-    }
+.offer-banner {
+  background-color: #848484;
+  text-align: center;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fafafa;
+  transition: opacity 0.5s ease-in-out;
+  cursor: pointer;
+  display: block;
+}
 
-    /* Offer Banner */
-    .offer-banner {
-      background-color: #848484;
-      text-align: center;
-      padding: 10px;
-      font-weight: 600;
-      font-size: 14px;
-      color: #fafafa;
-      transition: opacity 0.5s ease-in-out;
-      cursor: pointer;
-      display: block;
-    }
+.offer-banner:hover {
+  text-decoration: underline;
+}
 
-    .offer-banner:hover {
-      text-decoration: underline;
-    }
 
     /* Hero Section */
     .hero-banner {
@@ -183,25 +180,25 @@
 </head>
 <body>
 
-  <!-- Offer Banner -->
-  <div class="offer-banner" id="rotating-header">
-    Buy Any 2 Products @899/- | Use Code : SVEYA899
-  </div>
+ <!-- Offer Banner -->
+<div class="offer-banner" id="rotating-header">
+  Buy Any 2 Products @899/- | Use Code : SVEYA899
+</div>
 
-  <header>
-    <div class="brand-banner">
-      <div class="nav-links-left">
-        <a href="#">Shop</a>
-        <a href="#">About</a>
-      </div>
-      <div class="brand-name">sveya</div>
-      <div class="nav-links-right">
-        <a href="#">Search</a>
-        <a href="#">Wishlist</a>
-        <a href="#">Cart</a>
-      </div>
+<header>
+  <div class="brand-banner">
+    <div class="nav-links-left">
+      <a href="#">Shop</a>
+      <a href="#">About</a>
     </div>
-  </header>
+    <div class="brand-name">sveya</div>
+    <div class="nav-links-right">
+      <a href="#">Search</a>
+      <a href="#">Wishlist</a>
+      <a href="#">Cart</a>
+    </div>
+  </div>
+</header>
 
   <!-- Hero Section -->
   <a href="product1.html" class="hero-banner-link">
