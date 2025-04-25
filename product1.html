@@ -20,72 +20,80 @@
       color: #333;
     }
 
-    /* Offer Banner */
-    .offer-banner {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: #848484;
-      color: #fff;
-      text-align: center;
-      font-weight: 600;
-      font-size: 14px;
-      padding: 10px;
-      z-index: 1000;
-      transition: opacity 0.3s ease-in-out;
-    }
+   
+   
+   header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.78rem 2rem;
+  background-color: #eeeeee;
+  border-bottom: 1px solid #ccc;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-    .hidden {
-      opacity: 0;
-    }
+.brand-banner {
+  background-color: #eeeeee;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 20px;
+  position: relative;
+  border-radius: 12px;
+}
 
-    /* Header */
-    .header-wrapper {
-      position: fixed;
-      top: 40px;
-      width: 100%;
-      background-color: #eeeeee;
-      border-bottom: 1px solid #ccc;
-      z-index: 999;
-      padding: 10px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-    }
+.brand-name {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Quicksand', sans-serif;
+  font-size: 30px;
+  color: #333;
+  letter-spacing: 1px;
+  font-weight: 750;
+  text-transform: lowercase;
+  pointer-events: none;
+}
 
-    .brand-name {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'Quicksand', sans-serif;
-      font-size: 30px;
-      color: #333;
-      font-weight: 750;
-      text-transform: lowercase;
-      text-decoration: none;
-      letter-spacing: 1px;
-      pointer-events: none;
-    }
+.nav-links-left, .nav-links-right {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
 
-    .nav-links a {
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      color: #333;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
+.nav-links-left a, .nav-links-right a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
 
-    .nav-links a:hover {
-      color: #555;
-      text-decoration: underline;
-    }
+.nav-links-left a:hover, .nav-links-right a:hover {
+  color: #555;
+  text-decoration: underline;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 25px;
-    }
+.offer-banner {
+  background-color: #848484;
+  text-align: center;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fafafa;
+  transition: opacity 0.5s ease-in-out;
+  cursor: pointer;
+  display: block;
+}
+
+.offer-banner:hover {
+  text-decoration: underline;
+}
+
 
     /* Main Product Section */
     .product-main {
@@ -202,22 +210,26 @@
 </head>
 <body>
 
-  <!-- Offer Banner -->
-  <div class="offer-banner" id="offerBanner">Loading offers...</div>
+<!-- Offer Banner -->
+<div class="offer-banner" id="rotating-header">
+  Buy Any 2 Products @899/- | Use Code : SVEYA899
+</div>
 
-  <!-- Header -->
-  <header class="header-wrapper">
-    <div class="nav-links">
+<header>
+  <div class="brand-banner">
+    <div class="nav-links-left">
       <a href="#">Shop</a>
       <a href="#">About</a>
     </div>
-    <a href="index.html" class="brand-name">sveya</a>
-    <div class="nav-links">
+    <div class="brand-name">sveya</div>
+    <div class="nav-links-right">
       <a href="#">Search</a>
       <a href="#">Wishlist</a>
       <a href="#">Cart</a>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <!-- Product Info Section -->
   <div class="product-main">
